@@ -1,0 +1,74 @@
+id: SendOffer
+type: PageHeaderMenu
+properties:
+  title: Send an Offer
+  menu:
+    links:
+      - id: home
+        type: MenuLink
+        pageId: SendOffer
+        properties:
+          icon: AiFillHome
+          title: Send an Offer
+      - id: templates
+        type: MenuLink
+        pageId: OfferTemplates
+        properties:
+          icon: HiOutlineTemplate
+          title: Offer Templates
+areas:
+  content:
+    justify: center
+    blocks:
+      - id: content_card
+        type: Card
+        style:
+          maxWidth: 800
+        blocks:
+          - id: content
+            type: Result
+            properties:
+              title: Send a new offer to a candidate.
+              subTitle: Provide details of a candidate to send an offer
+              icon:
+                name: AiFillMail
+                color: '#f00'
+            areas:
+              extra:
+                blocks:
+                  - id: candidate_name
+                    type: TextInput
+                    properties:
+                      title: Candidate Name
+                      suffixIcon: CgProfile
+                      placeholder: Candidate Name
+                      label:
+                        span: 6
+                  - id: candidate_salary
+                    type: TextInput
+                    properties:
+                      title: Salary
+                      suffixIcon: AiFillMoneyCollect
+                      placeholder: Salary
+                      label:
+                        span: 6
+                  - id: start_date
+                    type: DateSelector
+                    properties:
+                      title: Candidate Start Date
+                      suffixIcon: BsFillCalendarDateFill
+                      label:
+                        span: 6
+                  - id: docs_button
+                    type: Button
+                    properties:
+                      size: large
+                      title: Generate Offer Letter
+                      color: '#1890ff'
+                    events:
+                      onClick:
+                        - id: link_to_docs
+                          type: Link
+                          params:
+                            url: https://workerscompadvisors.com/wp-content/uploads/2018/12/Sample-Letter-Making-a-Bona-Fide-Offer-of-Employment.pdf
+                            newTab: true

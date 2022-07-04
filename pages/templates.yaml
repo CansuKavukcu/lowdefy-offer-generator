@@ -1,0 +1,51 @@
+id: OfferTemplates
+type: PageHeaderMenu
+properties:
+  title: Offer Templates
+  menu:
+    links:
+      - id: home
+        type: MenuLink
+        pageId: SendOffer
+        properties:
+          icon: AiFillHome
+          title: Send an Offer
+      - id: templates
+        type: MenuLink
+        pageId: OfferTemplates
+        properties:
+          icon: HiOutlineTemplate
+          title: Offer Templates
+areas:
+  content:
+    justify: center
+    blocks:
+      - id: content_card
+        type: Card
+        style:
+          maxWidth: 800
+        blocks:
+          - id: content
+            type: Result
+            properties:
+              title: Submit a new offer template
+              subTitle: Provide a full offer template
+              icon:
+                name: ImInsertTemplate
+                color: '#f00'
+            areas:
+              extra:
+                blocks:
+                  - id: template_content
+                    type: TextArea
+                    properties:
+                      autoSize: true
+                      title: Offer template
+                      label:
+                        span: 6
+                  - id: docs_button
+                    type: Button
+                    properties:
+                      size: large
+                      title: Save template
+                      color: '#1890ff'

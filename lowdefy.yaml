@@ -1,0 +1,49 @@
+
+lowdefy: 4.0.0-alpha.18
+name: Lowdefy starter
+
+config:
+  homePageId: SendOffer
+  theme:
+    lessVariables:
+      '@primary-color': '#438ef7'
+      '@border-radius-base': 6px
+      '@border-radius-sm': 4px
+
+pages:
+  - _ref: pages/home.yaml
+  - _ref: pages/templates.yaml
+
+
+blocks:
+  - id: block_id
+    type: PageHeaderMenu
+    properties:
+      breadcrumb:
+        list: []
+      menu:
+        links:
+          - id: home
+            type: MenuLink
+            pageId: home
+            properties:
+              icon: HomeOutlined
+              title: Home
+          - id: pages
+            type: MenuGroup
+            properties:
+              title: Pages
+              icon: LayoutOutlined
+            links:
+              - id: page1
+                type: MenuLink
+                pageId: page1
+                properties:
+                  title: Page 1
+              - id: more_pages
+                type: MenuGroup
+                links:
+                  - id: page3
+                    type: MenuLink
+                    pageId: page3
+            pageId: null
