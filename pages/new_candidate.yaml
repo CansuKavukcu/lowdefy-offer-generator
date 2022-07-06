@@ -1,0 +1,60 @@
+id: NewCandidate
+type: PageHeaderMenu
+properties:
+  title: New Candidate
+
+areas:
+  content:
+    justify: center
+    blocks:
+      - id: content_card
+        type: Card
+        style:
+          maxWidth: 800
+        blocks:
+          - id: content
+            type: Result
+            properties:
+              title: Add a new candidate to system
+              subTitle: New candidate
+              icon:
+                name: ImInsertTemplate
+                color: '#f00'
+            areas:
+              extra:
+                blocks:
+                  - id: candidate_name
+                    type: TextInput
+                    properties:
+                      autoSize: true
+                      title: Candidate Name
+                      label:
+                        span: 6
+                  - id: docs_button
+                    type: Button
+                    properties:
+                      size: large
+                      title: Save candidate
+                      color: '#1890ff'
+                    requests:
+                      # insert new candidate to MongoDB
+                      - id: insert_candidate
+                        type: MongoDBInsertOne
+                        connectionId: candidates
+                        payload:
+                          _state: true
+                        properties:
+                          doc:
+                            # Use _object.assign to create a new object with all the values from state, and some extra fields
+                            _object.assign:
+                              - created_date:
+                                  _date: now
+                                updated_date:
+                                  _date: now
+                                name:
+                                  _payload: candidate_name
+                    events:
+                      onClick:
+                        - id: submit
+                          type: Request
+                          params: insert_candidate

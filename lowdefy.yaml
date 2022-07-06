@@ -10,40 +10,45 @@ config:
       '@border-radius-base': 6px
       '@border-radius-sm': 4px
 
+connections:
+  - id: candidates
+    type: MongoDBCollection
+    properties:
+      collection: candidates
+      databaseUri:
+        _secret: MONGODB_URI
+      write: true
+
+menus:
+  - id: default
+    links:
+      - id: home
+        type: MenuLink
+        pageId: SendOffer
+        properties:
+          icon: AiFillMail
+          title: Send an Offer
+      - id: templates
+        type: MenuLink
+        pageId: OfferTemplates
+        properties:
+          icon: HiOutlineTemplate
+          title: Offer Templates
+      - id: candidate_new
+        type: MenuLink
+        pageId: NewCandidate
+        properties:
+          icon: AiOutlineUserAdd
+          title: New Candidate
+      - id: candidate_all
+        type: MenuLink
+        pageId: AllCandidate
+        properties:
+          icon: GiLadder
+          title: All Candidates
+
 pages:
   - _ref: pages/home.yaml
   - _ref: pages/templates.yaml
-
-
-blocks:
-  - id: block_id
-    type: PageHeaderMenu
-    properties:
-      breadcrumb:
-        list: []
-      menu:
-        links:
-          - id: home
-            type: MenuLink
-            pageId: home
-            properties:
-              icon: HomeOutlined
-              title: Home
-          - id: pages
-            type: MenuGroup
-            properties:
-              title: Pages
-              icon: LayoutOutlined
-            links:
-              - id: page1
-                type: MenuLink
-                pageId: page1
-                properties:
-                  title: Page 1
-              - id: more_pages
-                type: MenuGroup
-                links:
-                  - id: page3
-                    type: MenuLink
-                    pageId: page3
-            pageId: null
+  - _ref: pages/new_candidate.yaml
+  - _ref: pages/all_candidates.yaml

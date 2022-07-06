@@ -1,0 +1,38 @@
+id: AllCandidate
+type: PageHeaderMenu
+properties:
+  title: All Candidates
+
+requests:
+  - id: get_candidates
+    type: MongoDBAggregation # MongoDb Aggregation to get the table data.
+    connectionId: candidates # Id of the connection defined in the lowdefy.yaml file.
+    properties:
+      pipeline: # Here we can simply provide any valid MongoDB aggregation pipeline, like do a very basic sort.
+        - $sort:
+            name: 1 # Sort alphabetically according to the name
+events:
+  onMount:
+    - id: fetch_request
+      type: Request
+      params: get_candidates
+    - id: set_candidate
+      type: SetState
+      params:
+        candidates:
+          _request: get_candidates
+
+layout:
+  contentGutter: 16
+blocks:
+  - id: candidates
+    type: List
+    properties:
+    # ...
+    blocks:
+      - id: candidates.$.name
+        type: TextInput
+        properties:
+          label:
+            title: Candidate Name
+            span: 4

@@ -2,20 +2,6 @@ id: SendOffer
 type: PageHeaderMenu
 properties:
   title: Send an Offer
-  menu:
-    links:
-      - id: home
-        type: MenuLink
-        pageId: SendOffer
-        properties:
-          icon: AiFillHome
-          title: Send an Offer
-      - id: templates
-        type: MenuLink
-        pageId: OfferTemplates
-        properties:
-          icon: HiOutlineTemplate
-          title: Offer Templates
 areas:
   content:
     justify: center

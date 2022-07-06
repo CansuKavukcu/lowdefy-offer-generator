@@ -4,13 +4,15 @@ This is a sample project to try Lowdefy for implementing a offer letter generato
 Lowdefy is a Low-Code platform that removes all the complicated parts of developing a web app as internal tools. A perfect match for a recruiter developing 
 an internal tool. https://github.com/lowdefy
 
+1.Add Candidates
 
-1.Get a template as an input from the users.
+![](docs/add.gif)
 
+2.Get a template as an input from the users.
 
 ![](docs/template.png)
 
-2.Generate an offer letter by providing values to the template variables.
+3.Generate an offer letter by providing values to the template variables.
 
 ![](docs/date_picker.png)
 
